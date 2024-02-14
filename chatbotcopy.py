@@ -3,15 +3,7 @@ import streamlit as st
 import os
 from streamlit_chat import message
 
-#openai.api_key = st.secrets["api_secret"]
-
-try:
-    openai.api_key = st.secrets["api_secret"]
-except KeyError as e:
-    st.error(f"Error accessing API secret: {e}. Please make sure it is correctly set in your secrets.toml or Streamlit Cloud settings.")
-    # Optionally, add more logic here to handle the absence of the API key appropriately
-
-
+openai.api_key = st.secrets["api_secret"]
 
 # creating a function which will generate the calls from the api
 def generate_response(prompt, temperature):

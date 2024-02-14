@@ -22,31 +22,35 @@ def generate_response(prompt, temperature):
 
 # Main Streamlit code
 def main():
-    # Clear the generated responses from the previous session
-    #st.session_state['generated'] = []
+
+    # Display image
+    st.sidebar.image("/Users/Machintosh/Downloads/bot.webp", use_column_width=True) #,caption="GPT–EMR")
 
     # Create a slider for temperature
-    temperature = st.sidebar.slider('Temperature', min_value=0.1, max_value=1.0, step=0.1, value=0.5)
+    temperature = st.sidebar.slider('Creativity of generated responses', min_value=0.1, max_value=1.0, step=0.1, value=0.5)
+    #st.sidebar.write("Adjust temperature with low temperature for accurate response, high temperature for creativity.")
 
+
+    # Display title
     st.title("GPT–EMR Chatbot")
 
+    # Display prompt box
     def get_text():
         input_text = st.text_area("Medical Inquiries: ", key="input")
         return input_text
 
+    # Define user input
     user_input = get_text()
 
     if user_input:
         # Generate response
         response = generate_response(user_input, temperature)
 
-        # Display response
-        message(user_input, is_user=True)  # Displaying user input
-        message(response)  # Displaying generated response
+        # Insert the user input at the beginning of the list
+        st.session_state['past'].insert(0, user_input)  # This is the user input (prompt)
 
-        # Store the output
-        st.session_state['past'].append(user_input)  # This is the user input (prompt)
-        st.session_state['past'].append(response)  # This is the generated response
+        # Insert the generated response just after the user input
+        st.session_state['past'].insert(1, response)  # This is the generated response
 
     # create empty container to store the chat
     if 'past' not in st.session_state:
@@ -58,9 +62,7 @@ def main():
             key = str(i) + ('_user' if is_user else '_generated')
             message(st.session_state['past'][i], is_user=is_user, key=key)
 
-
-
-
-
 if __name__ == '__main__':
     main()
+
+    

@@ -1,6 +1,6 @@
-pip install openai ==0.28
-pip install streamlit 
-pip install streamlit-chat
+!pip install openai ==0.28
+!pip install streamlit 
+!pip install streamlit-chat
 
 import openai
 import streamlit as st

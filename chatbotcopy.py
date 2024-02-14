@@ -3,14 +3,7 @@ import streamlit as st
 import os
 from streamlit_chat import message
 
-#openai.api_key = st.secrets["api_secret"]
-api_secret = os.environ.get('API_SECRET')
-
-if api_secret:
-    st.write(f"API Secret: {api_secret}")
-else:
-    st.error("Error: API Secret not found. Please check your configuration.")
-
+openai.api_key = st.secrets["api_secret"]
 
 
 # creating a function which will generate the calls from the api

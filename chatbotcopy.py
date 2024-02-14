@@ -4,16 +4,16 @@ import os
 import toml
 from streamlit_chat import message
 
-#openai.api_key = st.secrets["api_secret"]
+openai.api_key = st.secrets["api_secret"]
 
 # Load secrets from secrets.toml
-secrets = toml.load("secrets.toml")
+#secrets = toml.load("secrets.toml")
 
 # Access the API key
-api_key = secrets["api_secret"]
+#api_key = secrets["api_secret"]
 
 # Now you can use the API key as needed
-openai.api_key = api_key
+#openai.api_key = api_key
 
 
 # creating a function which will generate the calls from the api

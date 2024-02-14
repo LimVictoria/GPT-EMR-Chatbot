@@ -24,7 +24,7 @@ def generate_response(prompt, temperature):
 def main():
 
     # Display image
-    st.sidebar.image("/Users/Machintosh/Downloads/bot.webp", use_column_width=True) #,caption="GPT–EMR")
+    st.sidebar.image("https://drive.google.com/file/d/1cOY-qACjHjhbYMYeHtPTXVPlmXEIwvFn/view?usp=sharing", use_column_width=True) #,caption="GPT–EMR")
 
     # Create a slider for temperature
     temperature = st.sidebar.slider('Creativity of generated responses', min_value=0.1, max_value=1.0, step=0.1, value=0.5)

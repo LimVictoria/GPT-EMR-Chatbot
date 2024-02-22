@@ -4,7 +4,7 @@ Allows the interaction between the user and the chatbot on web.
 
 At the terminal :
 
-pip install openai
+pip install openai==0.28
 
 pip install streamlit
 

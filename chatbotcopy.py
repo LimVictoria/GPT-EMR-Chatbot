@@ -35,7 +35,7 @@ def main():
 
 
     # Display title
-    st.title("Base Model")
+    st.title("Chatbot B")
 
     # Display prompt box
     def get_text():
